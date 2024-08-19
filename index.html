@@ -1,0 +1,58 @@
+<html>
+
+<head>
+    <!--
+Calculator Project
+Developed by Jessy Lee Hamm
+Contact: jlhg.96@gmail.com
+Linkedin: https://www.linkedin.com/in/jessy-lee-hamm/
+-->
+    <title>Calculator</title>
+    <link type="text/css" rel="stylesheet" href="/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div id="calculatorApp">
+        <form name="calculator">
+            <input type="text" name="ans" value="" autocomplete="off" id="calculatorInput" placeholder="Enter Numbers">
+            <br>
+            <input type="button" value="7" onclick="document.calculator.ans.value+='7'" class="blue">
+            <input type="button" value="8" onclick="document.calculator.ans.value+='8'" class="blue">
+            <input type="button" value="9" onclick="document.calculator.ans.value+='9'" class="blue">
+            <input type="button" value="+" onclick="document.calculator.ans.value+='+'" class="orange">
+            <br>
+            <input type="button" value="4" onclick="document.calculator.ans.value+='4'" class="blue">
+            <input type="button" value="5" onclick="document.calculator.ans.value+='5'" class="blue">
+            <input type="button" value="6" onclick="document.calculator.ans.value+='6'" class="blue">
+            <input type="button" value="-" onclick="document.calculator.ans.value+='-'" class="orange">
+            <br>
+            <input type="button" value="1" onclick="document.calculator.ans.value+='1'" class="blue">
+            <input type="button" value="2" onclick="document.calculator.ans.value+='2'" class="blue">
+            <input type="button" value="3" onclick="document.calculator.ans.value+='3'" class="blue">
+            <input type="button" value="X" onclick="document.calculator.ans.value+='*'" class="orange">
+            <br>
+            <input type="button" value="0" onclick="document.calculator.ans.value+='0'" class="blue">
+            <input type="reset" value="C" class="orange">
+            <input type="button" value="=" onclick="document.calculator.ans.value=eval(document.calculator.ans.value)"
+                class="orange">
+            <input type="button" value="/" onclick="document.calculator.ans.value+='/'" class="orange">
+        </form>
+    </div>
+    <script>
+        document.getElementById('calculatorInput').addEventListener('input', function (e) {
+            this.value = this.value.replace(/[^0-9+\-*/]/g, '');
+        });
+        document.getElementById('calculatorInput').addEventListener('keydown', function (e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                this.value = eval(this.value);
+            }
+        });
+    </script>
+</body>
+
+</html>
